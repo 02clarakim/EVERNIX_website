@@ -1,26 +1,215 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pb-white: #FFF;
+  --pb-black: #1D1D1F;
+  --pp-navy: #001F3F;
+  --sc-gray: #8E8E93;
+  --as-navy: #036;
+  --n-gray: #4A4A4A;
+  --n-dust: #E6E6E6;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-inter: var(--font-inter);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.hero-background {
+  background: linear-gradient(135deg, rgba(0, 31, 63, 0.9) 0%, rgba(0, 31, 63, 0.95) 50%, rgba(0, 31, 63, 0.8) 100%),
+              url('/assets/backgrounds/hero-bg.jpg') center/cover;
+  background-attachment: scroll; /* Better performance on mobile */
+  /* Fallback in case image doesn't load */
+  background-color: var(--pp-navy);
+}
+
+@media (max-width: 768px) {
+  .hero-background {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.10) 100%);
+  backdrop-filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(3px); /* Reduce blur on mobile for better performance */
+  }
+}
+
+.feature-divider {
+  width: 496px;
+  height: 1px;
+  background: #E6E6E6;
+}
+
+@media (max-width: 1024px) {
+  .feature-divider {
+    width: 100%;
+  }
+}
+
+.faq-divider {
+  height: 1px;
+  background: var(--sc-gray);
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid var(--pp-navy);
+  outline-offset: 2px;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* How It Works Carousel Styles */
+.dark-step-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 31, 63, 0.9) 100%);
+  position: relative;
+}
+
+.dark-step-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+  border-radius: 10px;
+}
+
+/* Horizontal scroll styling */
+.overflow-x-auto {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
+}
+
+/* Carousel animations and transitions */
+@keyframes fadeInScale {
+  from {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.transition-all {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glass card enhanced styling */
+.glass-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.10) 100%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+/* Blur effects for non-active steps */
+.blur-none {
+  filter: blur(0px);
+}
+
+.blur-\[1px\] {
+  filter: blur(1px);
+}
+
+.blur-\[2px\] {
+  filter: blur(2px);
+}
+
+/* Step content hover effects */
+.step-content-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.step-content-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation dots styling */
+.nav-dot {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Active step highlighting */
+.step-active {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+
+  .dark-step-card::before {
+    opacity: 0.2;
+  }
+
+  /* Reduce blur intensity on mobile for performance */
+  .blur-\[1px\] {
+    filter: blur(0.5px);
+  }
+
+  .blur-\[2px\] {
+    filter: blur(1px);
+  }
+}
+
+/* Smooth scrolling behavior */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .transition-all,
+  .glass-card,
+  .nav-dot,
+  .step-content-card {
+    transition: none;
+  }
 }
