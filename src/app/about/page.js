@@ -269,14 +269,38 @@ export default function About() {
                 </p>
               </motion.div>
             </div>
+            {/* Scroll Down Arrow */}
+            <div className="absolute bottom-16 lg:bottom-8 left-1/2 transform -translate-x-1/2">
+              <button
+                onClick={() => {
+                  const nextSection = document.querySelector('#mission');
+                  nextSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex flex-col items-center gap-2 text-white hover:opacity-70 transition-opacity animate-bounce"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+              </button>
+            </div>
+          
           </div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="h-screen flex flex-col justify-center px-4 lg:px-[118px] py-8">
+      <section id="mission" className="h-screen flex flex-col justify-center px-4 lg:px-[118px] py-8">
         <div className="mb-6 lg:mb-8">
-          <h2 className="text-[#001F3F] text-3xl lg:text-[64px] font-medium font-inter mb-4 lg:mb-6">
+          <h2 className="text-[#001F3F] text-3xl lg:text-[64px] font-medium font-inter mb-4 lg:mb-6 mt-15">
             Mission
           </h2>
           <p className="text-[#90AEB9] text-2xl lg:text-[44px] font-medium font-inter leading-tight lg:leading-normal max-w-[1043px]">

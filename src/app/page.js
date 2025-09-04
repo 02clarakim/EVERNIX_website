@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white relative">
       {/* Hero Section with Navigation */}
-      <section className="hero-background relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[875px] rounded-b-[10px]">
+      <section className="relative h-screen">
         {/* Background */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
@@ -84,7 +84,7 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
 
-        <div className="relative z-10">
+        <div className="relative z-10 h-full">
           {/* Navigation */}
           <nav className="flex items-center justify-between px-4 sm:px-8 lg:px-[74px] py-4 lg:py-[34px]">
             <div className="flex items-center gap-4 lg:gap-[25px]">
@@ -244,13 +244,36 @@ export default function Home() {
             <button className="bg-[rgba(255,255,255,0.30)] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-sm lg:text-[16px] font-inter">
               Get Early Access
             </button>
+            {/* Scroll Down Arrow */}
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
+              <button
+                onClick={() => {
+                  const nextSection = document.querySelector('#vertical-products');
+                  nextSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex flex-col items-center gap-2 text-white hover:opacity-70 transition-opacity animate-bounce"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Investing Section - Full Screen */}
-      <section className="h-screen flex flex-col justify-center px-4 sm:px-8 lg:px-[138px] py-8 lg:py-16">
-        <h2 className="text-[#1D1D1F] font-bold text-xl sm:text-2xl lg:text-[24px] font-inter mt-20 lg:mt-10 lg:mb-15">
+      <section id="vertical-products" className="h-screen flex flex-col justify-center px-10 lg:px-[138px] py-8 lg:py-16">
+        <h2 className="text-[#1D1D1F] font-bold text-xl sm:text-2xl lg:text-[24px] font-inter mt-24 mb-4 lg:mt-4 lg:mb-15">
           Vertical Products
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[114px] items-center">
@@ -268,29 +291,31 @@ export default function Home() {
 
               {/* Right: Arrow */}
               <div className="flex-shrink-0">
-                <svg
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#1D1D1F]"
-                >
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
+                <Link href="/products/investment">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-[#1D1D1F]"
+                    >
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </Link>
               </div>
             </div>
 
             <p className="text-[#8E8E93] font-normal text-lg lg:text-[24px] font-inter leading-normal max-w-[592px]">
               Explainable, risk-aligned portfolio guidance powered by multi-agent AI.
             </p>
+            <div className="w-full h-px bg-[#E6E6E6]"></div>
 
             {/* What you get section */}
-            <div className="space-y-3 lg:space-y-4 pt-4 lg:pt-6">
-              <div className="w-full h-px bg-[#E6E6E6]"></div>
+            <div className="space-y-3 lg:space-y-4 pt-1">
               <div>
                 <h4 className="text-[#001F3F] font-normal text-lg lg:text-[24px] font-inter mb-3 lg:mb-4">
                   What you get
@@ -312,19 +337,37 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center lg:justify-start">
-            <div className="w-full max-w-[400px] lg:max-w-[536px] aspect-square bg-[#D9D9D9] rounded-[20px]"></div>
+            <div className="relative w-full max-w-[400px] lg:max-w-[536px] aspect-square rounded-[20px] overflow-hidden">
+              <video
+                src="/assets/videos/investment.mp4"
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Legal Section - Full Screen */}
-      <section className="h-screen flex flex-col justify-center px-4 sm:px-8 lg:px-[138px] py-8 lg:py-16">
+      <section className="h-screen flex flex-col justify-center px-10 lg:px-[138px] py-8 lg:py-16 mt-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[114px] items-center">
-          <div className="flex justify-center lg:justify-start order-2 lg:order-1">
-            <div className="w-full max-w-[400px] lg:max-w-[536px] aspect-square bg-[#D9D9D9] rounded-[20px]"></div>
+          <div className="flex justify-center lg:justify-start">
+            <div className="relative w-full max-w-[400px] lg:max-w-[536px] aspect-square rounded-[20px] overflow-hidden">
+              <video
+                src="/assets/videos/legal.mp4"
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
           </div>
 
-          <div className="space-y-4 lg:space-y-6 order-1 lg:order-2">
+          <div className="space-y-4 lg:space-y-6 order-first lg:order-2">
             <div className="flex items-center justify-between w-full">
               {/* Left: Text */}
               <div>
@@ -334,32 +377,36 @@ export default function Home() {
                 <p className="text-[#E6E6E6] font-medium text-lg lg:text-[24px] font-inter">
                   (Planned / exploratory)
                 </p>
+                
               </div>
 
               {/* Right: Arrow */}
               <div className="flex-shrink-0">
-                <svg
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#1D1D1F]"
-                >
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
+                <Link href="/products/investment">
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#1D1D1F]"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </Link>
               </div>
             </div>
             <p className="text-[#8E8E93] font-normal text-lg lg:text-[24px] font-inter leading-normal max-w-[592px]">
               A structured pathway for legal research and decision support.
             </p>
+              <div className="w-full h-px bg-[#E6E6E6]"></div>
+
 
             {/* Goal section */}
-            <div className="space-y-3 lg:space-y-4 pt-4 lg:pt-6">
-              <div className="w-full h-px bg-[#E6E6E6]"></div>
+            <div className="space-y-3 lg:space-y-4 pt-1">
               <div>
                 <h4 className="text-[#001F3F] font-normal text-lg lg:text-[24px] font-inter mb-3 lg:mb-4">
                   Goal
@@ -383,7 +430,7 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="h-screen px-4 sm:px-8 lg:px-[138px] mb-12 lg:mb-[100px]">
+      <section className="lg:h-screen px-10 lg:px-[138px] mb-4 lg:mb-[100px] mt-10">
         <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-medium font-inter mb-8 lg:mb-[64px]">How It Works</h2>
 
         {/* 3 Rectangles Layout */}
@@ -498,12 +545,12 @@ export default function Home() {
 
         {/* Multi-Agent Decision Engine */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-[30px] items-start lg:items-center mb-0 max-w-[1180px] mx-auto">
-          <div className="relative w-full lg:w-[592px] h-[200px] lg:h-[238px] bg-gray-300 rounded-[10px] overflow-hidden">
+          <div className="relative w-7/8 lg:w-[592px] h-[200px] lg:h-[238px] bg-gray-300 rounded-[10px] overflow-hidden mx-auto lg:mx-0">
             <Image
               src="/assets/images/home_desc1.png"
               alt="Multi-Agent Decision Engine"
               fill
-              className="w-full h-full object-cover object-bottom"
+              className="w-[full] h-full object-cover object-bottom"
             />
           </div>
           <div className="flex-1 bg-white rounded-r-[10px] p-8 lg:p-[43px] min-h-[200px] lg:min-h-[324px] flex flex-col justify-between">
@@ -523,7 +570,7 @@ export default function Home() {
 
         {/* Explainable, Auditable Guidance */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-[30px] items-start lg:items-center mb-0 max-w-[1180px] mx-auto">
-          <div className="relative w-full lg:w-[592px] h-[200px] lg:h-[238px] bg-gray-300 rounded-[10px] overflow-hidden">
+          <div className="relative w-7/8 lg:w-[592px] h-[200px] lg:h-[238px] bg-gray-300 rounded-[10px] overflow-hidden mx-auto lg:mx-0">
             <Image
               src="/assets/images/home_desc2.png"
               alt="Explainable, Auditable Guidance"
@@ -548,7 +595,7 @@ export default function Home() {
 
         {/* Risk-Aligned Control */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-[30px] items-start lg:items-center mb-0 max-w-[1180px] mx-auto">
-          <div className="relative w-full lg:w-[592px] h-[200px] lg:h-[238px] bg-gray-300 rounded-[10px] overflow-hidden">
+          <div className="relative w-7/8 lg:w-[592px] h-[200px] lg:h-[238px] bg-gray-300 rounded-[10px] overflow-hidden mx-auto lg:mx-0">
             <Image
               src="/assets/images/home_desc3.png"
               alt="Risk-Aligned Control"
@@ -578,26 +625,28 @@ export default function Home() {
 
 
       {/* FAQ Section */}
-      <section className="px-4 sm:px-8 lg:px-[138px] mb-12">
+      <section className="px-10 lg:px-[138px] mb-12">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[114px]">
-          <div className="w-full lg:w-[359px]">
+          <div className="w-full lg:w-[359px] order-1 lg:order-1">
             <h2 className="text-black text-2xl sm:text-3xl lg:text-[48px] font-inter leading-normal mb-4 lg:mb-[18px]">Any Questions?</h2>
             <p className="text-[#4A4A4A] text-base lg:text-[18px] font-medium leading-normal mb-4 lg:mb-[18px] max-w-full lg:w-[355px]">
               We are here to assist you with any kind of questions. Sign up and ask personalized questions directly to us. We will get in touch shortly.
             </p>
-            <button className="
-              inline-flex items-center justify-center gap-[10px] px-[20px] py-[10px] rounded-[30px] mt-4 lg:mt-[18px]
+            <div className="hidden lg:block mt-8">
+              <button className="
+              inline-flex items-center justify-center gap-[10px] px-[20px] py-[10px] rounded-[30px]
               border-2 border-[#001F3F] focus:outline-none
             ">
-              <Link href='/faq'>
-                <span className="text-[#001F3F] font-bold text-sm lg:text-[16px] font-inter">
-                  Learn More &gt;
-                </span>
-              </Link>
-            </button>
+                <Link href='/faq'>
+                  <span className="text-[#001F3F] font-bold text-sm lg:text-[16px] font-inter">
+                    Learn More &gt;
+                  </span>
+                </Link>
+              </button>
+            </div>
           </div>
 
-          <div className="flex-1 max-w-full lg:max-w-[690px]">
+          <div className="flex-1 max-w-full lg:max-w-[690px] order-2 lg:order-2">
             {/* Question 1 - Expanded */}
             <div className="pb-6 lg:pb-[32px] mb-6 lg:mb-[32px]">
               <div className="flex items-start lg:items-center justify-between mb-4 lg:mb-[32px] gap-4">
@@ -631,7 +680,7 @@ export default function Home() {
             </div>
 
             {/* Question 3 */}
-            <div className="pb-6 lg:pb-[32px] mb-6 lg:mb-[32px]">
+            <div className="pb-6 lg:pb-[32px] mb-1 lg:mb-[32px]">
               <div className="flex items-start lg:items-center justify-between gap-4">
                 <h3 className="text-[#1D1D1F] text-lg sm:text-xl lg:text-[24px] font-medium leading-normal flex-1 pr-2">What do you mean by a “multi-agent system”?</h3>
                 <button onClick={() => toggleFaq(2)} className="flex-shrink-0">
@@ -646,13 +695,25 @@ export default function Home() {
               <div className="w-full lg:w-[690px] h-[1px] bg-[#8E8E93] mt-4 lg:mt-[32px]"></div>
             </div>
           </div>
+          <div className="w-full order-3 mt-1 lg:hidden">
+            <button className="
+              inline-flex items-center justify-center gap-[10px] px-[20px] py-[10px] rounded-[30px]
+        border-2 border-[#001F3F] focus:outline-none
+            ">
+              <Link href='/faq'>
+                <span className="text-[#001F3F] font-bold text-sm lg:text-[16px] font-inter">
+                  Learn More &gt;
+                </span>
+              </Link>
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Join Waitlist + Footer */}
-      <section className="h-screen relative flex flex-col justify-between">
+      <section className="lg:h-screen relative flex flex-col justify-between">
         {/* Join Waitlist content at the top */}
-        <div className="mt-24 lg:mt-32 text-center mb-20">
+        <div className="mt-4 lg:mt-32 text-center mb-20">
           <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-inter mb-6 lg:mb-[31px]">
             Join Waitlist
           </h2>

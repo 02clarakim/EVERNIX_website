@@ -157,7 +157,7 @@ export default function FAQ() {
 
             {/* Desktop Auth Buttons */}
             <div className="hidden lg:flex items-center gap-[17px]">
-              <button className="bg-white rounded-[30px] px-[20px] py-[10px] text-black font-bold text-[16px] font-inter">
+              <button className="bg-white border-2 border-[#E6E6E6] rounded-[30px] px-[20px] py-[10px] text-black font-bold text-[16px] font-inter">
                 Log In
               </button>
               <button className="bg-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-[16px] font-inter">
@@ -244,7 +244,7 @@ export default function FAQ() {
 
       {/* Main Content */}
       <div className="px-4 lg:px-0">
-        <section className="min-h-screen">
+        <section className="lg:min-h-screen">
           {/* Main Heading */}
           <div className="lg:ml-[128px] lg:mt-[40px] mt-8 mb-12 lg:mb-[55px]">
             <h1 className="text-black text-3xl lg:text-[64px] font-inter leading-normal max-w-[498px]">
@@ -291,7 +291,7 @@ export default function FAQ() {
           </div>
         </section>
           
-        <section className="min-h-screen max-w-[1440px] mx-auto">
+        <section className="lg:min-h-screen max-w-[1440px] mx-auto mt-12">
           {/* Investment FAQ Section */}
           <div className="flex flex-col lg:flex-row lg:gap-[118px]">
             {/* Left Title */}
@@ -329,7 +329,7 @@ export default function FAQ() {
         </section>
         
 
-        <section className="min-h-screen">
+        <section className="min-h-screen mt-12">
           {/* Contact Form Section */}
           <div className="lg:ml-[128px]">
             <div className="flex flex-col lg:flex-row lg:gap-[80px]">
