@@ -431,7 +431,7 @@ export default function Home() {
 
       {/* How It Works */}
       <section className="lg:h-screen px-10 lg:px-[138px] mb-4 lg:mb-[100px] mt-10">
-        <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-medium font-inter mb-8 lg:mb-[64px]">How It Works</h2>
+        <h2 className="text-[#1D1D1F] text-3xl sm:text-3xl lg:text-[48px] font-medium font-inter mb-8 lg:mb-[64px]">How It Works</h2>
 
         {/* 3 Rectangles Layout */}
         <div className="flex gap-4 lg:gap-[42px] items-center justify-center">
@@ -480,7 +480,7 @@ export default function Home() {
                     </div>
                     <div className="relative z-10">
                       <p className={`
-                        text-base sm:text-lg lg:text-[20px] font-medium font-inter
+                        text-base sm:text-md lg:text-[20px] font-medium font-inter
                         ${step.theme === 'dark' ? 'text-white' : 'text-[#8E8E93]'}
                       `}>
                         {step.description}
@@ -628,7 +628,7 @@ export default function Home() {
       <section className="px-10 lg:px-[138px] mb-12">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-[114px]">
           <div className="w-full lg:w-[359px] order-1 lg:order-1">
-            <h2 className="text-black text-2xl sm:text-3xl lg:text-[48px] font-inter leading-normal mb-4 lg:mb-[18px]">Any Questions?</h2>
+            <h2 className="text-black text-3xl sm:text-3xl lg:text-[48px] font-inter leading-normal mb-4 lg:mb-[18px]">Any Questions?</h2>
             <p className="text-[#4A4A4A] text-base lg:text-[18px] font-medium leading-normal mb-4 lg:mb-[18px] max-w-full lg:w-[355px]">
               We are here to assist you with any kind of questions. Sign up and ask personalized questions directly to us. We will get in touch shortly.
             </p>
@@ -711,7 +711,7 @@ export default function Home() {
       </section>
 
       {/* Join Waitlist + Footer */}
-      <section className="lg:h-screen relative flex flex-col justify-between">
+      <section className="lg:h-screen relative px-10 flex flex-col justify-between">
         {/* Join Waitlist content at the top */}
         <div className="mt-4 lg:mt-32 text-center mb-20">
           <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-inter mb-6 lg:mb-[31px]">

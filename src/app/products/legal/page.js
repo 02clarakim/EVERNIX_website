@@ -286,7 +286,7 @@ export default function Legal() {
       </section>
 
       {/* You get Section */}
-    <section className="min-h-screen flex flex-col justify-center px-10 lg:px-[147px] py-12">
+    <section className="min-h-screen flex flex-col justify-center px-10 lg:px-[147px] py-12 mt-16">
       <h2 className="text-[#1D1D1F] text-3xl lg:text-[48px] font-inter mb-12 lg:mb-[58px]">
         You get:
       </h2>

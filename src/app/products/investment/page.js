@@ -29,7 +29,7 @@ export default function Investment() {
       <div className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, rgba(31, 24, 165, 0.9) 0%, rgba(0, 31, 63, 0.9) 10%, rgba(144, 174, 185, 0.02) 50%)",
+            "linear-gradient(180deg, rgba(3, 8, 155, 0.9) 0%, rgba(0, 31, 63, 0.9) 10%, rgba(144, 174, 185, 0.02) 50%)",
           opacity: 0.2, // fades whole gradient effect to 20%
         }}/>
       {/* Hero Section with Navigation */}
@@ -273,7 +273,7 @@ export default function Investment() {
       </section>
 
       {/* You get Section */}
-      <section className="min-h-screen flex flex-col justify-center px-10 lg:px-[147px] py-12 mt-12">
+      <section className="min-h-screen flex flex-col justify-center px-10 lg:px-[147px] py-12 mt-16">
         <h2 className="text-[#1D1D1F] text-3xl lg:text-[48px] font-inter mb-12 lg:mb-[58px]">
           You get:
         </h2>
