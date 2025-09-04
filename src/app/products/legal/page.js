@@ -361,7 +361,7 @@ export default function Legal() {
             STATUS
           </h3>
           <p className="text-[#8E8E93] text-lg lg:text-[24px] font-inter max-w-[693px] mx-auto">
-            In development and Beta. Join the waitlist for <br/>access waves and product updates.
+            Planned vertical, under exploration. Availability will be announced on our site.
           </p>
         </div>
       </section>

@@ -431,11 +431,67 @@ export default function Home() {
 
       {/* How It Works */}
       <section className="lg:h-screen px-10 lg:px-[138px] mb-4 lg:mb-[100px] mt-10">
-        <h2 className="text-[#1D1D1F] text-3xl sm:text-3xl lg:text-[48px] font-medium font-inter mb-8 lg:mb-[64px]">How It Works</h2>
+        <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-medium font-inter mb-8 lg:mb-[64px]">How It Works</h2>
 
-        {/* 3 Rectangles Layout */}
-        <div className="flex gap-4 lg:gap-[42px] items-center justify-center">
+        {/* Mobile Layout */}
+        <div className="block md:hidden">
+          <div className="flex gap-1 items-center justify-center">
+            {steps.map((step, stepIndex) => {
+              const isActive = stepIndex === activeStep;
+              
+              return (
+                <div
+                  key={stepIndex}
+                  className={`
+                    rounded-[10px] relative overflow-hidden cursor-pointer transition-all duration-500 flex flex-col justify-between
+                    ${isActive 
+                      ? 'flex-1 h-[350px] p-6 opacity-100 blur-none z-20' 
+                      : 'w-3 h-[350px] opacity-30 blur-[1px] z-10'
+                    }
+                    ${step.theme === 'dark' ? 'dark-step-card' : 'bg-[#D9D9D9]'}
+                  `}
+                  onClick={() => setActiveStep(stepIndex)}
+                >
+                  {/* Video Background */}
+                  <video
+                    className="absolute top-0 left-0 w-full h-full object-cover rounded-[10px]"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    key={`${stepIndex}-${isActive}`}
+                  >
+                    <source src={step.videoPath} type="video/mp4" />
+                  </video>
 
+                  {/* Content - only show when active */}
+                  {isActive && (
+                    <>
+                      <div className="relative z-10">
+                        <h3 className="text-white text-xl font-medium font-inter mb-4">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <div className="relative z-10">
+                        <p className="text-white text-base font-medium font-inter">
+                          {step.description}
+                        </p>
+                      </div>
+                    </>
+                  )}
+
+                  {/* Overlay for inactive steps */}
+                  {!isActive && (
+                    <div className="absolute inset-0 bg-black/60 rounded-[10px]"></div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop/Tablet Layout - Keep existing design */}
+        <div className="hidden md:flex gap-4 lg:gap-[42px] items-center justify-center">
           {steps.map((step, stepIndex) => {
             const isActive = stepIndex === activeStep;
 
@@ -461,10 +517,9 @@ export default function Home() {
                   loop
                   muted
                   playsInline
-                  key={`${stepIndex}-${isActive}`} // Force re-render when active state changes
+                  key={`${stepIndex}-${isActive}`}
                 >
                   <source src={step.videoPath} type="video/mp4" />
-                  Your browser does not support the video tag.
                 </video>
 
                 {/* Content - only show full content when active */}
@@ -489,20 +544,7 @@ export default function Home() {
                   </>
                 ) : (
                   <>
-                    {/* Inactive state - just title and video placeholder */}
-                    {/* <div className="relative z-10">
-                      <h3 className={`
-                        text-sm sm:text-base lg:text-lg font-medium font-inter
-                        ${step.theme === 'dark' ? 'text-white' : 'text-[#1D1D1F]'}
-                      `}>
-                        {step.title}
-                      </h3>
-                    </div>
-                    <div className="relative z-10 flex-1 flex items-center justify-center">
-                      <div className="w-full h-24 lg:h-40 bg-gradient-to-b from-white/40 to-white/10 backdrop-blur-[5px] rounded-lg flex items-center justify-center">
-                        <span className="text-white/60 font-inter text-xs">Video {stepIndex + 1}</span>
-                      </div>
-                    </div> */}
+                    {/* Inactive state - commented out as in original */}
                   </>
                 )}
 
@@ -513,7 +555,6 @@ export default function Home() {
               </div>
             );
           })}
-
         </div>
 
         {/* Navigation Dots */}
@@ -711,9 +752,9 @@ export default function Home() {
       </section>
 
       {/* Join Waitlist + Footer */}
-      <section className="lg:h-screen relative px-10 flex flex-col justify-between">
+      <section className="lg:h-screen relative flex flex-col justify-between">
         {/* Join Waitlist content at the top */}
-        <div className="mt-4 lg:mt-32 text-center mb-20">
+        <div className="mt-4 lg:mt-32 text-center mb-20 px-10">
           <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-inter mb-6 lg:mb-[31px]">
             Join Waitlist
           </h2>
