@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from "next/image";
+import Footer from '../../footer';
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Legal() {
@@ -38,10 +39,17 @@ export default function Legal() {
         <div className="relative z-10 flex flex-col lg:justify-start flex-1">
           {/* Navigation */}
           <nav className="flex items-center justify-between px-4 sm:px-8 lg:px-[74px] py-4 lg:py-[34px]">
-            <div className="flex items-center gap-4 lg:gap-[25px]">
-              <div className="w-[19px] h-[19px] bg-white rounded-full"></div>
+           <Link href="/" className="flex items-center gap-4 lg:gap-[20px]">
+              <div className="w-6 h-6 lg:w-8 lg:h-8 relative">
+                <Image
+                  src="/assets/images/logo1_black.png"
+                  alt="Evernix Logo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
               <span className="text-black font-bold text-sm lg:text-[16px] font-inter">EVERNIX</span>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-[50px]">
@@ -73,13 +81,13 @@ export default function Legal() {
                   <div className="absolute left-0 mt-2 w-40 bg-white/75 rounded-lg shadow-lg z-20">
                     <Link
                       href="/products/investment"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover:rounded-lg font-inter"
+                      className="block px-4 py-2 text-gray-700 hover:text-black hover:font-semibold font-inter"
                     >
                       Investment
                     </Link>
                     <Link
                       href="/products/legal"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover: rounded-lg font-inter font-bold"
+                      className="block px-4 py-2 text-gray-700 hover:text-black font-inter font-bold"
                     >
                       Legal
                     </Link>
@@ -96,14 +104,14 @@ export default function Legal() {
             </div>
 
             {/* Desktop Auth Buttons */}
-            <div className="hidden lg:flex items-center gap-[17px]">
+            {/* <div className="hidden lg:flex items-center gap-[17px]">
               <button className="bg-white rounded-[30px] px-[20px] py-[10px] text-black font-bold text-[16px] font-inter">
                 Log In
               </button>
               <button className="bg-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-[16px] font-inter">
                 Sign Up
               </button>
-            </div>
+            </div> */}
 
             {/* Mobile Menu Button */}
             <button
@@ -168,14 +176,14 @@ export default function Legal() {
                     <Link href="/about">About Us</Link>
                     <Link href="/faq">FAQ</Link>
                   </nav>
-                  <div className="mt-auto flex flex-col gap-3">
+                  {/* <div className="mt-auto flex flex-col gap-3">
                     <button className="w-full bg-white text-black rounded-full px-6 py-3 font-bold">
                       Log In
                     </button>
                     <button className="w-full border border-white rounded-full px-6 py-3 font-bold">
                       Sign Up
                     </button>
-                  </div>
+                  </div> */}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -367,52 +375,7 @@ export default function Legal() {
       </section>
 
       {/* Footer */}
-      <footer 
-        className="relative w-full bg-cover bg-center text-white lg:h-[318px]" 
-        style={{ backgroundImage: "url('/assets/images/footer_img.png')" }}
-      >
-        <div className="absolute inset-0"></div>
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col lg:flex-row justify-between gap-12">
-          {/* Left Section */}
-          <div>
-            <p className="mb-4 font-bold">Contact</p>
-            <p className="text-sm">evernix.ai@gmail.com</p>
-            <p className="text-sm mt-2">Privacy Policy</p>
-            <p className="text-sm">Terms of Service</p>
-          </div>
-
-          {/* Right Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-16">
-            {/* Products */}
-            <div>
-              <p className="mb-4 font-bold">Products</p>
-              <Link href="/products/investment" className="text-sm">Investment</Link><br/>
-              <Link href="/products/legal" className="text-sm">Legal</Link>
-            </div>
-
-            {/* Company */}
-            <div>
-              <p className="mb-4 font-bold">Company</p>
-              <Link href="/about" className="text-sm">About Us</Link><br/>
-              <Link href="/faq" className="text-sm">FAQ</Link>
-            </div>
-
-            {/* Connect */}
-            <div>
-              <p className="mb-4 font-bold">Connect</p>
-              <div className="flex space-x-4">
-                
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom note */}
-        <div className="relative text-center text-sm py-4 border-t border-white/20 lg:mt-12">
-          © {new Date().getFullYear()} Evernix. All rights reserved.
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

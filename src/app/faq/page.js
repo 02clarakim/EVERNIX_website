@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import ContactForm from './ContactForm';
+import Footer from '../footer';
 import { AnimatePresence, motion } from "framer-motion";
 
 
@@ -98,10 +101,17 @@ export default function FAQ() {
       <div className="relative z-10">
           {/* Navigation */}
           <nav className="flex items-center justify-between px-4 sm:px-8 lg:px-[74px] py-4 lg:py-[34px]">
-            <div className="flex items-center gap-4 lg:gap-[25px]">
-              <div className="w-[19px] h-[19px] bg-white rounded-full"></div>
+            <Link href="/" className="flex items-center gap-4 lg:gap-[20px]">
+              <div className="w-6 h-6 lg:w-8 lg:h-8 relative">
+                <Image
+                  src="/assets/images/logo1_black.png"
+                  alt="Evernix Logo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
               <span className="text-black font-bold text-sm lg:text-[16px] font-inter">EVERNIX</span>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-[50px]">
@@ -133,13 +143,13 @@ export default function FAQ() {
                   <div className="absolute left-0 mt-2 w-40 bg-white/75 rounded-lg shadow-lg z-20">
                     <Link
                       href="/products/investment"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover:rounded-lg font-inter"
+                      className="block px-4 py-2 text-gray-700 hover:text-black hover:font-semibold font-inter"
                     >
                       Investment
                     </Link>
                     <Link
                       href="/products/legal"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover: rounded-lg font-inter"
+                      className="block px-4 py-2 text-gray-700 hover:text-black hover:font-semibold font-inter"
                     >
                       Legal
                     </Link>
@@ -156,14 +166,14 @@ export default function FAQ() {
             </div>
 
             {/* Desktop Auth Buttons */}
-            <div className="hidden lg:flex items-center gap-[17px]">
+            {/* <div className="hidden lg:flex items-center gap-[17px]">
               <button className="bg-white border-2 border-[#E6E6E6] rounded-[30px] px-[20px] py-[10px] text-black font-bold text-[16px] font-inter">
                 Log In
               </button>
               <button className="bg-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-[16px] font-inter">
                 Sign Up
               </button>
-            </div>
+            </div> */}
 
             {/* Mobile Menu Button */}
             <button
@@ -228,14 +238,14 @@ export default function FAQ() {
                     <Link href="/about">About Us</Link>
                     <Link href="/faq" className="font-bold">FAQ</Link>
                   </nav>
-                  <div className="mt-auto flex flex-col gap-3">
+                  {/* <div className="mt-auto flex flex-col gap-3">
                     <button className="w-full bg-white text-black rounded-full px-6 py-3 font-bold">
                       Log In
                     </button>
                     <button className="w-full border border-white rounded-full px-6 py-3 font-bold">
                       Sign Up
                     </button>
-                  </div>
+                  </div> */}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -244,10 +254,10 @@ export default function FAQ() {
 
       {/* Main Content */}
       <div className="px-4 lg:px-0">
-        <section className="lg:min-h-screen">
+        <section className="lg:h-screen">
           {/* Main Heading */}
           <div className="lg:ml-[128px] lg:mt-[40px] mt-8 mb-12 lg:mb-[55px]">
-            <h1 className="text-black text-3xl lg:text-[64px] font-inter leading-normal max-w-[498px]">
+            <h1 className="text-black text-3xl lg:text-[56px] font-inter leading-normal max-w-[498px]">
               We Answer Your Questions
             </h1>
           </div>
@@ -291,7 +301,7 @@ export default function FAQ() {
           </div>
         </section>
           
-        <section className="lg:min-h-screen max-w-[1440px] mx-auto mt-12">
+        <section className="lg:h-screen max-w-[1440px] mx-auto mt-12 flex items-center">
           {/* Investment FAQ Section */}
           <div className="flex flex-col lg:flex-row lg:gap-[118px]">
             {/* Left Title */}
@@ -329,7 +339,7 @@ export default function FAQ() {
         </section>
         
 
-        <section className="min-h-screen mt-12">
+        <section id="contact-form" className="h-screen mt-12 flex items-center">
           {/* Contact Form Section */}
           <div className="lg:ml-[128px]">
             <div className="flex flex-col lg:flex-row lg:gap-[80px]">
@@ -346,140 +356,15 @@ export default function FAQ() {
 
               {/* Right Form */}
               <div className="bg-[rgba(144,174,185,0.20)] rounded-[10px] p-6 lg:p-8 w-full lg:w-[682px] h-auto">
-                <form className="space-y-6">
-                  {/* First Row */}
-                  <div className="flex flex-col lg:flex-row gap-4 lg:gap-[22px]">
-                    <div className="flex-1">
-                      <label className="block text-black text-[18px] font-inter mb-3">
-                        First Name <span className="text-[#036]">*</span>
-                      </label>
-                      <div className="bg-white rounded-[10px] h-[42px] px-[21px] flex items-center">
-                        <input 
-                          type="text" 
-                          placeholder="Jenny" 
-                          className="w-full text-[#8E8E93] text-[16px] font-inter bg-transparent border-none outline-none"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <label className="block text-black text-[18px] font-inter mb-3">
-                        Last Name <span className="text-[#036]">*</span>
-                      </label>
-                      <div className="bg-white rounded-[10px] h-[42px] px-[21px] flex items-center">
-                        <input 
-                          type="text" 
-                          placeholder="Kim" 
-                          className="w-full text-[#8E8E93] text-[16px] font-inter bg-transparent border-none outline-none"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Second Row */}
-                  <div className="flex flex-col lg:flex-row gap-4 lg:gap-[22px]">
-                    <div className="flex-1">
-                      <label className="block text-black text-[18px] font-inter mb-3">
-                        Email address <span className="text-[#036]">*</span>
-                      </label>
-                      <div className="bg-white rounded-[10px] h-[42px] px-[21px] flex items-center">
-                        <input 
-                          type="email" 
-                          placeholder="evernix.ai@google.com" 
-                          className="w-full text-[#8E8E93] text-[16px] font-inter bg-transparent border-none outline-none"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <label className="block text-black text-[18px] font-inter mb-3">
-                        Phone number
-                      </label>
-                      <div className="bg-white rounded-[10px] h-[42px] px-[21px] flex items-center">
-                        <input 
-                          type="tel" 
-                          placeholder="+1 (510) 123-456" 
-                          className="w-full text-[#8E8E93] text-[16px] font-inter bg-transparent border-none outline-none"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Message Field */}
-                  <div>
-                    <label className="block text-black text-[18px] font-inter mb-3">
-                      Message
-                    </label>
-                    <div className="bg-white rounded-[10px] h-[136px] p-[21px]">
-                      <textarea 
-                        placeholder="I have a question regarding..." 
-                        className="w-full h-full text-[#8E8E93] text-[16px] font-inter bg-transparent border-none outline-none resize-none"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="flex justify-center">
-                    <button 
-                      type="submit"
-                      className="bg-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-[16px] font-inter min-w-[154px]"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>
         </section>
       </div>
 
-
         {/* Footer */}
-        <footer 
-          className="relative w-full bg-cover bg-center text-white lg:h-[318px] mt-10 lg:mt-0" 
-          style={{ backgroundImage: "url('/assets/images/footer_img.png')" }}
-        >
-          <div className="absolute inset-0"></div> {/* Overlay for readability */}
-
-          <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col lg:flex-row justify-between gap-12">
-            {/* Left Section */}
-            <div>
-              <p className="mb-4 font-bold">Contact</p>
-              <p className="text-sm">evernix.ai@gmail.com</p>
-              <p className="text-sm mt-2">Privacy Policy</p>
-              <p className="text-sm">Terms of Service</p>
-            </div>
-
-            {/* Right Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-16">
-              {/* Products */}
-              <div>
-                <p className="mb-4 font-bold">Products</p>
-                <Link href="/products/investment" className="text-sm">Investment</Link><br/>
-                <Link href="/products/legal" className="text-sm">Legal</Link>
-              </div>
-
-              {/* Company */}
-              <div>
-                <p className="mb-4 font-bold">Company</p>
-                <Link href="/about" className="text-sm">About Us</Link><br/>
-                <Link href="/faq" className="text-sm">FAQ</Link>
-              </div>
-
-              {/* Connect */}
-              <div>
-                <p className="mb-4 font-bold">Connect</p>
-                <div className="flex space-x-4">
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom note */}
-          <div className="relative text-center text-sm py-4 border-t border-white/20 lg:mt-12">
-            © {new Date().getFullYear()} Evernix. All rights reserved.
-          </div>
-        </footer>
+        <Footer />
     </main>
   );
 }

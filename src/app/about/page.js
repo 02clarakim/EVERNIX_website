@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import Footer from '../footer';
 import { AnimatePresence, motion } from "framer-motion";
 
 
@@ -84,10 +86,17 @@ export default function About() {
         <div className="relative z-10 h-full flex flex-col">
           {/* Navigation */}
           <nav className="flex items-center justify-between px-4 sm:px-8 lg:px-[74px] py-4 lg:py-[34px]">
-            <div className="flex items-center gap-4 lg:gap-[25px]">
-              <div className="w-[19px] h-[19px] bg-white rounded-full"></div>
-              <span className="text-black font-bold text-sm lg:text-[16px] font-inter">EVERNIX</span>
-            </div>
+            <Link href="/" className="flex items-center gap-4 lg:gap-[20px]">
+              <div className="w-6 h-6 lg:w-8 lg:h-8 relative">
+                <Image
+                  src="/assets/images/logo1_white.png"
+                  alt="Evernix Logo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>              
+              <span className="text-white font-bold text-sm lg:text-[16px] font-inter">EVERNIX</span>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-[50px]">
@@ -119,13 +128,13 @@ export default function About() {
                   <div className="absolute left-0 mt-2 w-40 bg-white/75 rounded-lg shadow-lg z-20">
                     <Link
                       href="/products/investment"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover:rounded-lg font-inter"
+                      className="block px-4 py-2 text-gray-700 hover:text-black hover:font-semibold font-inter"
                     >
                       Investment
                     </Link>
                     <Link
                       href="/products/legal"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover: rounded-lg font-inter"
+                      className="block px-4 py-2 text-gray-700 hover:text-black hover:font-semibold font-inter"
                     >
                       Legal
                     </Link>
@@ -142,14 +151,14 @@ export default function About() {
             </div>
 
             {/* Desktop Auth Buttons */}
-            <div className="hidden lg:flex items-center gap-[17px]">
+            {/* <div className="hidden lg:flex items-center gap-[17px]">
               <button className="bg-white rounded-[30px] px-[20px] py-[10px] text-black font-bold text-[16px] font-inter">
                 Log In
               </button>
               <button className="bg-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-[16px] font-inter">
                 Sign Up
               </button>
-            </div>
+            </div> */}
 
             {/* Mobile Menu Button */}
             <button
@@ -214,14 +223,14 @@ export default function About() {
                     <Link href="/about" className="font-bold">About Us</Link>
                     <Link href="/faq">FAQ</Link>
                   </nav>
-                  <div className="mt-auto flex flex-col gap-3">
+                  {/* <div className="mt-auto flex flex-col gap-3">
                     <button className="w-full bg-white text-black rounded-full px-6 py-3 font-bold">
                       Log In
                     </button>
                     <button className="w-full border border-white rounded-full px-6 py-3 font-bold">
                       Sign Up
                     </button>
-                  </div>
+                  </div> */}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -298,129 +307,69 @@ export default function About() {
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="h-screen flex flex-col justify-center px-4 lg:px-[118px] py-8">
+      <section
+        id="mission"
+        className="h-screen flex flex-col justify-center px-4 lg:px-[118px] py-8"
+      >
         <div className="mb-6 lg:mb-8">
-          <h2 className="text-[#001F3F] text-3xl lg:text-[64px] font-medium font-inter mb-4 lg:mb-6 mt-15">
+          <h2 className="text-[#001F3F] text-3xl lg:text-[64px] font-medium font-inter mb-4 lg:mb-6">
             Mission
           </h2>
-          <p className="text-[#90AEB9] text-2xl lg:text-[44px] font-medium font-inter leading-tight lg:leading-normal max-w-[1043px]">
+          <p className="text-[#90AEB9] text-2xl lg:text-[40px] font-medium font-inter leading-tight lg:leading-normal max-w-[1043px]">
             Make disciplined, explainable decision-making accessible to everyone, across domains.
           </p>
         </div>
 
-        {/* Image Grid */}
+        {/* Image/Video Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-[10px]">
-          {/* Row 1 */}
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-blue-400 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-70 rounded-[10px]"></div>
+          {/* Mobile: show only m5–m10 */}
+          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m5.png" alt="Mission 5" fill className="object-cover" />
           </div>
-          <div className="relative w-full h-[100px] lg:h-[120px] bg-[#F5F5F5] rounded-[10px]"></div>
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-30 rounded-[10px]"></div>
+          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m1.png" alt="Mission 7" fill className="object-cover" />
           </div>
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-green-300 to-green-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-30 rounded-[10px]"></div>
+          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <video src="/assets/missions/m10.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
           </div>
-
-          {/* Row 2 */}
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-300 to-purple-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-40 rounded-[10px]"></div>
+          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m8.png" alt="Mission 8" fill className="object-cover" />
           </div>
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-[10px]"></div>
+          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m9.png" alt="Mission 9" fill className="object-cover" />
           </div>
-          <div className="relative w-full h-[100px] lg:h-[120px] bg-[#F5F5F5] rounded-[10px]"></div>
-          <div className="relative w-full h-[100px] lg:h-[120px] bg-[#F5F5F5] rounded-[10px]"></div>
-
-          {/* Row 3 */}
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-300 to-red-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-30 rounded-[10px]"></div>
-          </div>
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-teal-300 to-teal-500 rounded-[10px]"></div>
-          </div>
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-300 to-orange-500 rounded-[10px]"></div>
-          </div>
-          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-300 to-pink-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-70 rounded-[10px]"></div>
+          <div className="relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <video src="/assets/missions/m6.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
           </div>
 
-          {/* Row 4 */}
-          {/* <div className="relative w-full h-[120px] lg:h-[165px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-300 to-indigo-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-70 rounded-[10px]"></div>
+          {/* Desktop only: show remaining items m1–m4 & m11–m12 */}
+          <div className="hidden lg:block relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m7.png" alt="Mission 1" fill className="object-cover" />
           </div>
-          <div className="relative w-full h-[120px] lg:h-[165px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-300 to-cyan-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-40 rounded-[10px]"></div>
+          <div className="hidden lg:block relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m2.png" alt="Mission 2" fill className="object-cover" />
           </div>
-          <div className="relative w-full h-[120px] lg:h-[165px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-lime-300 to-lime-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-70 rounded-[10px]"></div>
+          <div className="hidden lg:block relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m3.png" alt="Mission 3" fill className="object-cover" />
           </div>
-          <div className="relative w-full h-[120px] lg:h-[165px] rounded-[10px] overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-300 to-amber-500 rounded-[10px]"></div>
-            <div className="absolute inset-0 bg-white bg-opacity-20 rounded-[10px]"></div>
-          </div> */}
+          <div className="hidden lg:block relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m4.png" alt="Mission 4" fill className="object-cover" />
+          </div>
+          <div className="hidden lg:block relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <video src="/assets/missions/m11.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
+          </div>
+          <div className="hidden lg:block relative w-full h-[100px] lg:h-[120px] rounded-[10px] overflow-hidden opacity-70">
+            <Image src="/assets/missions/m12.png" alt="Mission 12" fill className="object-cover" />
+          </div>
         </div>
       </section>
+
+
 
       {/* What makes us different */}
       <WhatMakesDifferent />
       {/* Footer */}
-        <footer 
-          className="relative w-full bg-cover bg-center text-white lg:h-[318px] mt-10 lg:mt-0" 
-          style={{ backgroundImage: "url('/assets/images/footer_img.png')" }}
-        >
-          <div className="absolute inset-0"></div> {/* Overlay for readability */}
-
-          <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col lg:flex-row justify-between gap-12">
-            {/* Left Section */}
-            <div>
-              <p className="mb-4 font-bold">Contact</p>
-              <p className="text-sm">evernix.ai@gmail.com</p>
-              <p className="text-sm mt-2">Privacy Policy</p>
-              <p className="text-sm">Terms of Service</p>
-            </div>
-
-            {/* Right Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-16">
-              {/* Products */}
-              <div>
-                <p className="mb-4 font-bold">Products</p>
-                <Link href="/products/investment" className="text-sm">Investment</Link><br/>
-                <Link href="/products/legal" className="text-sm">Legal</Link>
-              </div>
-
-              {/* Company */}
-              <div>
-                <p className="mb-4 font-bold">Company</p>
-                <Link href="/about" className="text-sm">About Us</Link><br/>
-                <Link href="/faq" className="text-sm">FAQ</Link>
-              </div>
-
-              {/* Connect */}
-              <div>
-                <p className="mb-4 font-bold">Connect</p>
-                <div className="flex space-x-4">
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom note */}
-          <div className="relative text-center text-sm py-4 border-t border-white/20 lg:mt-12">
-            © {new Date().getFullYear()} Evernix. All rights reserved.
-          </div>
-        </footer>
+      <Footer />
     </main>
   );
 }

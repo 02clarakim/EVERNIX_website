@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from './footer';
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {
@@ -87,10 +88,17 @@ export default function Home() {
         <div className="relative z-10 h-full">
           {/* Navigation */}
           <nav className="flex items-center justify-between px-4 sm:px-8 lg:px-[74px] py-4 lg:py-[34px]">
-            <div className="flex items-center gap-4 lg:gap-[25px]">
-              <div className="w-[19px] h-[19px] bg-white rounded-full"></div>
+            <Link href="/" className="flex items-center gap-4 lg:gap-[20px]">
+              <div className="w-6 h-6 lg:w-8 lg:h-8 relative">
+                <Image
+                  src="/assets/images/logo1_white.png"
+                  alt="Evernix Logo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
               <span className="text-white font-bold text-sm lg:text-[16px] font-inter">EVERNIX</span>
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-[50px]">
@@ -122,13 +130,13 @@ export default function Home() {
                   <div className="absolute left-0 mt-2 w-40 bg-white/75 rounded-lg shadow-lg z-20">
                     <Link
                       href="/products/investment"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover:rounded-lg font-inter"
+                      className="block px-4 py-2 text-gray-700 hover:text-black hover:font-semibold font-inter"
                     >
                       Investment
                     </Link>
                     <Link
                       href="/products/legal"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100/75 hover: rounded-lg font-inter"
+                      className="block px-4 py-2 text-gray-700 hover:text-black hover:font-semibold font-inter"
                     >
                       Legal
                     </Link>
@@ -145,14 +153,14 @@ export default function Home() {
             </div>
 
             {/* Desktop Auth Buttons */}
-            <div className="hidden lg:flex items-center gap-[17px]">
+            {/* <div className="hidden lg:flex items-center gap-[17px]">
               <button className="bg-white rounded-[30px] px-[20px] py-[10px] text-black font-bold text-[16px] font-inter">
                 Log In
               </button>
               <button className="bg-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-[16px] font-inter">
                 Sign Up
               </button>
-            </div>
+            </div> */}
 
             {/* Mobile Menu Button */}
             <button
@@ -217,14 +225,14 @@ export default function Home() {
                     <Link href="/about">About Us</Link>
                     <Link href="/faq">FAQ</Link>
                   </nav>
-                  <div className="mt-auto flex flex-col gap-3">
+                  {/* <div className="mt-auto flex flex-col gap-3">
                     <button className="w-full bg-white text-black rounded-full px-6 py-3 font-bold">
                       Log In
                     </button>
                     <button className="w-full border border-white rounded-full px-6 py-3 font-bold">
                       Sign Up
                     </button>
-                  </div>
+                  </div> */}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -241,9 +249,9 @@ export default function Home() {
               EVERNIX (n.) /ˈɛvərnɪks/ : a continuously evolving, tech-built pathway
             </p>
 
-            <button className="bg-[rgba(255,255,255,0.30)] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-sm lg:text-[16px] font-inter">
+            <a href="faq#contact-form" className="bg-[rgba(255,255,255,0.30)] rounded-[30px] px-[20px] py-[12px] text-white font-bold text-sm lg:text-[16px] font-inter">
               Get Early Access
-            </button>
+            </a>
             {/* Scroll Down Arrow */}
             <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2">
               <button
@@ -273,7 +281,7 @@ export default function Home() {
 
       {/* Investing Section - Full Screen */}
       <section id="vertical-products" className="h-screen flex flex-col justify-center px-10 lg:px-[138px] py-8 lg:py-16">
-        <h2 className="text-[#1D1D1F] font-bold text-xl sm:text-2xl lg:text-[24px] font-inter mt-24 mb-4 lg:mt-4 lg:mb-15">
+        <h2 className="text-[#1D1D1F] font-bold text-xl sm:text-2xl lg:text-[24px] font-inter mt-24 mb-4 lg:mt-4 lg:mb-8">
           Vertical Products
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[114px] items-center">
@@ -571,9 +579,9 @@ export default function Home() {
           ))}
         </div>
 
-        <button className="text-[#1D1D1F] font-bold text-sm lg:text-[16px] font-inter mb-12 lg:mb-[100px] mt-8">
+        {/* <button className="text-[#1D1D1F] font-bold text-sm lg:text-[16px] font-inter mb-12 lg:mb-[100px] mt-8">
           Learn More &gt;
-        </button>
+        </button> */}
       </section>
 
       {/* Your guardrails. Our engine. */}
@@ -659,9 +667,9 @@ export default function Home() {
           </div>
         </div>
 
-        <button className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-[30px] text-[#1D1D1F] font-bold text-sm lg:text-[16px] font-inter mt-0">
+        {/* <button className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-[30px] text-[#1D1D1F] font-bold text-sm lg:text-[16px] font-inter mt-0">
           Learn More &gt;
-        </button>
+        </button> */}
       </section>
 
 
@@ -752,7 +760,7 @@ export default function Home() {
       </section>
 
       {/* Join Waitlist + Footer */}
-      <section className="lg:h-screen relative flex flex-col justify-between">
+      <section className="lg:min-h-screen relative flex flex-col justify-between">
         {/* Join Waitlist content at the top */}
         <div className="mt-4 lg:mt-32 text-center mb-20 px-10">
           <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-inter mb-6 lg:mb-[31px]">
@@ -762,62 +770,17 @@ export default function Home() {
             Explore how EVERNIX can help you while staying in touch with recent updates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 lg:gap-[20px] justify-center max-w-sm sm:max-w-none mx-auto">
-            <button className="bg-[#036] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-sm lg:text-[16px] font-inter">
+            <a href="/faq#contact-form" className="bg-[#036] rounded-[30px] px-[20px] py-[10px] text-white font-bold text-sm lg:text-[16px] font-inter">
               Get Trial
-            </button>
-            <button className="border border-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-[#001F3F] font-bold text-sm lg:text-[16px] font-inter">
+            </a>
+            {/* <button className="border border-[#001F3F] rounded-[30px] px-[20px] py-[10px] text-[#001F3F] font-bold text-sm lg:text-[16px] font-inter">
               Stay Updated
-            </button>
+            </button> */}
           </div>
         </div>
 
         {/* Footer */}
-        <footer 
-          className="relative w-full bg-cover bg-center text-white lg:h-[318px]" 
-          style={{ backgroundImage: "url('/assets/images/footer_img.png')" }}
-        >
-          <div className="absolute inset-0"></div> {/* Overlay for readability */}
-
-          <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-12 flex flex-col lg:flex-row justify-between gap-12">
-            {/* Left Section */}
-            <div>
-              <p className="mb-4 font-bold">Contact</p>
-              <p className="text-sm">evernix.ai@gmail.com</p>
-              <p className="text-sm mt-2">Privacy Policy</p>
-              <p className="text-sm">Terms of Service</p>
-            </div>
-
-            {/* Right Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-16">
-              {/* Products */}
-              <div>
-                <p className="mb-4 font-bold">Products</p>
-                <Link href="/products/investment" className="text-sm">Investment</Link><br/>
-                <Link href="/products/legal" className="text-sm">Legal</Link>
-              </div>
-
-              {/* Company */}
-              <div>
-                <p className="mb-4 font-bold">Company</p>
-                <Link href="/about" className="text-sm">About Us</Link><br/>
-                <Link href="/faq" className="text-sm">FAQ</Link>
-              </div>
-
-              {/* Connect */}
-              <div>
-                <p className="mb-4 font-bold">Connect</p>
-                <div className="flex space-x-4">
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom note */}
-          <div className="relative text-center text-sm py-4 border-t border-white/20 lg:mt-12">
-            © {new Date().getFullYear()} Evernix. All rights reserved.
-          </div>
-        </footer>
+        <Footer />
       </section>
       
     </main>
