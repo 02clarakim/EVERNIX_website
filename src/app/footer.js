@@ -49,16 +49,23 @@ export default function Footer() {
       </div>
 
       {/* Bottom section: Risk disclosure + Privacy/Terms/etc */}
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-6 pb-4 border-t border-white/20 text-sm flex flex-col gap-2 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-6 pb-4 border-t border-white/20 text-sm flex flex-col gap-2 items-center text-center">
         <p className="text-gray-300">
           Risk Disclosure: All decisions involve risk; outcomes aren’t guaranteed. Evernix provides research and recommendations; final decisions remain yours.
         </p>
-        <div className="flex flex-wrap gap-4 text-gray-300">
+        <div className="flex flex-wrap gap-x-3 text-gray-300 justify-center">
           <Link href="/disclosures/privacy" className="hover:underline">Privacy</Link>
-          <li><Link href="/disclosures/terms" className="hover:underline">Terms</Link></li>
-          <li><Link href="/disclosures/disc" className="hover:underline">Disclosures</Link></li>
-          <li><Link href="/disclosures/security" className="hover:underline">Security</Link></li>
-          <li><Link href="/disclosures/access" className="hover:underline">Accessibility</Link></li>
+          <p>•</p>
+          <Link href="/disclosures/terms" className="hover:underline">Terms</Link>
+          <p>•</p>
+          <Link href="/disclosures/disc" className="hover:underline">Disclosures</Link>
+          {/* Force wrap on mobile by using w-full */}
+          <div className="w-full lg:w-auto flex gap-x-3 justify-center">
+            <p>•</p>
+            <Link href="/disclosures/security" className="hover:underline">Security</Link>
+            <p>•</p>
+            <Link href="/disclosures/access" className="hover:underline">Accessibility</Link>
+          </div>
         </div>
       </div>
 

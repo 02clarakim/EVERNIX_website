@@ -586,7 +586,7 @@ export default function Home() {
 
       {/* Your guardrails. Our engine. */}
       <section className="px-4 sm:px-8 lg:px-[118px] mb-12 lg:mb-[180px]">
-        <div className="text-center mb-8 lg:mb-[32px]">
+        <div className="text-center mb-8 lg:mb-[32px] mt-6">
           <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl lg:text-[48px] font-normal font-inter max-w-[637px] mx-auto">
             Your guardrails. Our engine.
           </h2>
