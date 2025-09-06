@@ -189,13 +189,22 @@ export default function Investment() {
           </nav>
 
           {/* Hero Content */}
-          <div className="text-center px-4 sm:px-8 lg:px-0 flex-1 flex flex-col justify-center lg:mt-[209px] lg:flex-none lg:justify-start">
+          <div className="text-center px-4 sm:px-8 lg:px-0 flex-1 flex flex-col justify-center lg:mt-[100px] lg:flex-none lg:justify-start items-center">
             <h1 className="text-[#1D1D1F] text-4xl lg:text-[64px] font-bold font-inter mb-6 lg:mb-[74px]">
               Investment
             </h1>
             <p className="text-[#001F3F] text-lg lg:text-[24px] font-inter max-w-[599px] mx-auto px-10">
               An explainable, risk-aligned investing pathway that converts noisy market inputs into plain-English recommendations you can audit and control.
             </p>
+            <a
+              href="https://evernix-investment.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[rgba(255,255,255,0.30)] rounded-[30px] px-[4px] py-[12px] text-black font-bold text-sm mt-8 lg:text-[16px] font-inter w-32 text-center"
+            >
+              Try Beta
+            </a>
+
             {/* Scroll Down Arrow */}
             <div className="absolute bottom-16 lg:bottom-8 left-1/2 transform -translate-x-1/2">
               <button
